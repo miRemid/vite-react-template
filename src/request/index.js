@@ -4,10 +4,33 @@ import config from '~/config'
 
 const MODE = import.meta.env.MODE
 
+const base = config[MODE]
+const _request = axios.create({
+  baseURL: base.apiBaseUrl,
+  timeout: base.timeout ? base.timeout : 10000,
+})
+
+_request.interceptors.request.use(
+  (config) => {
+
+  },
+  (error) => {
+
+  }
+)
+
+_request.interceptors.response.use(
+  (response) => {
+
+  },
+  (error) => {
+
+  }
+)
+
 const getReqeust = (method) => {
   return (url, data, options = {}) => {
-    let base = config[MODE]
-    return axios({
+    return _request({
       baseURL: base.apiBaseUrl,
       method,
       url,
