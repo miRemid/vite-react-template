@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import './index.less'
-import logo from '@/assets/logo.svg'
+import logo from '@/assets/image/logo.svg'
 
 export default class Index extends Component {
 
